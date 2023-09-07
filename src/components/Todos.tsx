@@ -29,7 +29,7 @@ const Todos = ({
   return (
     <Wrapper
       fluid
-      className={`flex flex-col gap-[2rem] md:flex-[65%] pr-0 md:pr-[1.5rem]  overflow-hidden lg:border-r-[1px] border-solid border-gray-200 ${
+      className={`flex relative flex-col gap-[2rem] md:flex-[65%] pr-0 md:pr-[1.5rem]  overflow-hidden lg:border-r-[1px] border-solid border-gray-200 ${
         (currentView === 'addTodo' || currentView === 'editTodo') &&
         'disabled:pointer-events-none opacity-[0.6] pointer-events-none'
       }`}

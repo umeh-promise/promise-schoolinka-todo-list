@@ -100,17 +100,19 @@ const App = () => {
             </ul>
 
             {/* Mobile Microphone Input */}
-            <hgroup
-              className='w-full px-[0.75rem] py-[0.5rem] flex items-center rounded-[0.5rem] border-[1.5px] border-solid gap-[0.5rem] h-[3rem] border-gray-300 bg-gray-50 box-shadow md:hidden'
-              onClick={() => setCurrentView('addTodo')}
-            >
-              <input
-                type='text'
-                defaultValue='Input task'
-                className='w-full outline-none border-none bg-transparent'
-              />
-              <MicrophoneIcon />
-            </hgroup>
+            <div className='flex bg-secondary w-full '>
+              <hgroup
+                className='w-[90vw] px-[0.75rem] py-[0.5rem] flex items-center rounded-[0.5rem] border-[1.5px] border-solid gap-[0.5rem] h-[3rem] border-gray-300 bg-gray-50 box-shadow md:hidden fixed bottom-[1rem]'
+                onClick={() => setCurrentView('addTodo')}
+              >
+                <input
+                  type='text'
+                  defaultValue='Input task'
+                  className='w-full outline-none border-none bg-transparent'
+                />
+                <MicrophoneIcon />
+              </hgroup>
+            </div>
           </Todos>
           <Wrapper
             fluid
