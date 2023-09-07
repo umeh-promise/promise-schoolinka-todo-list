@@ -31,7 +31,7 @@ const Pagination = ({
   return (
     <div className='hidden md:flex w-full justify-between'>
       <button
-        className='flex items-center justify-center gap-[0.5rem] disabled:pointer-events-none [&>*]:disabled:opacity-[.4]'
+        className='flex self-end items-center justify-center gap-[0.5rem] disabled:pointer-events-none [&>*]:disabled:opacity-[.4]'
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
       >

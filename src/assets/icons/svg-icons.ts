@@ -15,6 +15,7 @@ import { ReactComponent as Icon12 } from './calendar.svg';
 import { ReactComponent as Icon13 } from './clock.svg';
 import { ReactComponent as Icon14 } from './bell.svg';
 import { ReactComponent as Icon15 } from './logo.svg';
+import { ReactComponent as Icon16 } from './no-todo.svg';
 
 export const PlusIcon = React.memo(Icon1);
 export const ChevronLeftIcon = React.memo(Icon2);
@@ -31,3 +32,4 @@ export const CalenderIcon = React.memo(Icon12);
 export const ClockIcon = React.memo(Icon13);
 export const BellIcon = React.memo(Icon14);
 export const LogoMobile = React.memo(Icon15);
+export const NoTodoData = React.memo(Icon16);

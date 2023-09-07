@@ -3,7 +3,7 @@ import Wrapper from './components/bits/Wrapper';
 import Navbar from './components/Navbar';
 import Calendar from './components/Calender';
 import Button from './components/bits/Button';
-import { MicrophoneIcon, PlusIcon } from './assets/icons/svg-icons';
+import { MicrophoneIcon, NoTodoData, PlusIcon } from './assets/icons/svg-icons';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import TodoDetail from './components/TodoDetail';
@@ -48,7 +48,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <Wrapper className='md:py-[0.75rem] md:pl-[1rem] md:pr-[0.5rem] flex flex-col gap-[2rem] my-[2rem] min-h-screen '>
+      <Wrapper className='md:py-[0.75rem] md:pl-[1rem] md:pr-[0.5rem] flex flex-col gap-[2rem] my-[2rem] min-h-full '>
         <header className='flex gap-[0.25rem] justify-between items-center '>
           <hgroup className='flex flex-col gap-[0.25rem]'>
             <h2 className='font-secondary text-gray-900 text-md font-semibold leading-2 '>
@@ -58,14 +58,14 @@ const App = () => {
             <p className='text-base font-light '>You got some task to do.</p>
           </hgroup>
           <Button
-            className='text-sm font-semibold leading-1.25 box-shadow bg-secondary border-secondary border-[1px] border-solid rounded-[0.5rem] flex items-center justify-center px-[1rem] py-[0.625rem] text-white gap-[0.5rem] disabled:bg-gray-300 disabled:border-gray-300 outline-none'
+            className='text-sm font-semibold leading-1.25 box-shadow bg-secondary border-secondary border-[1px] border-solid rounded-[0.5rem] hidden md:flex items-center justify-center px-[1rem] py-[0.625rem] text-white gap-[0.5rem] disabled:bg-gray-300 disabled:border-gray-300 outline-none'
             onClick={() => setCurrentView('addTodo')}
             disabled={
               currentView === 'editTodo' || currentView === 'todoDetail'
             }
           >
             <PlusIcon />
-            <span className='hidden md:flex'>Create tasks</span>
+            <span className='flex'>Create tasks</span>
           </Button>
         </header>
 
@@ -77,14 +77,26 @@ const App = () => {
             pageSize={pageSize}
             currentView={currentView}
           >
-            <ul className='w-full flex flex-col gap-[1rem] '>
-              {todosData?.map((todo: Todo) => (
-                <TodoItem
-                  todo={todo}
-                  key={todo.id}
-                  onSetTodoView={(id: string) => setCurrentView(id)}
-                />
-              ))}
+            <ul className='w-full flex flex-col gap-[1rem]  '>
+              {todosData?.length > 0 ? (
+                todosData?.map((todo: Todo) => (
+                  <TodoItem
+                    todo={todo}
+                    key={todo.id}
+                    onSetTodoView={(id: string) => setCurrentView(id)}
+                  />
+                ))
+              ) : (
+                <Button
+                  onClick={() => setCurrentView('addTodo')}
+                  className=' flex  flex-col gap-[1rem] items-center justify-center h-full mb-[2rem]'
+                >
+                  <NoTodoData />
+                  <h4 className='text-md leading-1.75 text-gray-900 font-semibold'>
+                    Todo list is empty
+                  </h4>
+                </Button>
+              )}
             </ul>
 
             {/* Mobile Microphone Input */}
@@ -102,7 +114,7 @@ const App = () => {
           </Todos>
           <Wrapper
             fluid
-            className={`flex-[32%] flex w-full shrink-0 flex-col before:bg-[#00000066] fixed lg:static bottom-0 left-0 z-40 lg:z-0   before:absolute lg:before:static before:inset-0 before:-top-full before:-z-10 ${
+            className={`flex-[32%] flex w-full shrink-0 flex-col before:bg-[#00000066] fixed lg:static bottom-0 left-0 z-40 lg:z-0 before:absolute lg:before:static before:inset-0 before:-top-full before:-z-10 ${
               currentView === 'calender' && 'before:bg-transparent z-0'
             }`}
           >
