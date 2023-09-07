@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import {
   LogoMobile,
   NavMenuIcon,
@@ -7,15 +7,26 @@ import {
 } from '../assets/icons/svg-icons';
 import profileImg from '../assets/img/avatar.png';
 import Wrapper from './bits/Wrapper';
+import { useClickAway } from '../hooks/useClickAway';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const navRef = useRef<HTMLDivElement | null>(null);
+
+  const closeNavMenu = () => {
+    setShowMenu(false);
+  };
+
+  useClickAway(navRef, closeNavMenu);
   return (
     <Wrapper
       fluid
       className='shrink-0 flex items-center h-[6.062rem] border-[1px] border-solid border-gray-200 sticky top-0 bottom-0 left-0 right-0 bg-white mb-[0.75rem] z-10 '
     >
-      <nav className='w-full md:w-[90vw] mx-auto flex justify-between items-center py-[0.75rem] pl-[1rem] pr-[0.5rem]'>
+      <nav
+        className='w-full md:w-[90vw] mx-auto flex justify-between items-center py-[0.75rem] pl-[1rem] pr-[0.5rem]'
+        ref={navRef}
+      >
         <hgroup className='text-black text-md font-bold font-secondary flex gap-[0.625rem] '>
           <LogoMobile className='md:hidden' />
           <span>ToDo</span>
