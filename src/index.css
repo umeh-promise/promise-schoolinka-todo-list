@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #3f5bf640;
+}
+
+/* Handle on hover and Handle*/
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb {
+  background: #3f5bf6;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  color: #475467;
+  background-color: #fff;
+  line-height: 1.5;
+  font-weight: 400;
+  font-style: normal;
+}
+
+input,
+textarea {
+  display: block;
+  font-family: inherit;
+}
+
+#root {
+  isolation: isolate;
+}
+
+.box-shadow {
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+
+.box-shadow-calender {
+  box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.03),
+    0px 20px 24px -4px rgba(16, 24, 40, 0.08);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0.2rem;
+  cursor: pointer;
+}
