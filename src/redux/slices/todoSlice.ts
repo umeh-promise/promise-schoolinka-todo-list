@@ -30,20 +30,20 @@ export const todoSlice = createSlice({
   name: 'todo',
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<Partial<TodoState>>) => {
+    addTodo: (state, action: PayloadAction<TodoState>) => {
       const { todo } = action.payload;
 
       if (todo) state.todos = [todo, ...state.todos];
 
       showNotification({
-        title: 'Success!',
-        body: 'Task successfully added!',
+        title: 'Success',
+        body: 'Task added successfully!',
         duration: 3000,
         type: 'success',
       });
     },
 
-    updateTodo: (state, action: PayloadAction<Partial<TodoState>>) => {
+    updateTodo: (state, action: PayloadAction<TodoState>) => {
       const { todo } = action.payload;
       const todos = state.todos.find((currTodo) => currTodo.id === todo?.id);
 
@@ -56,8 +56,8 @@ export const todoSlice = createSlice({
       }
 
       showNotification({
-        title: 'Success!',
-        body: 'Task successfully updated!',
+        title: 'Success',
+        body: 'Task updated successfully!',
         duration: 3000,
         type: 'success',
       });
@@ -68,8 +68,8 @@ export const todoSlice = createSlice({
       state.todos = state.todos.filter((todo) => todo.id !== id);
 
       showNotification({
-        title: 'Success!',
-        body: 'Task successfully deleted!',
+        title: 'Success',
+        body: 'Task deleted successfully!',
         duration: 3000,
         type: 'success',
       });

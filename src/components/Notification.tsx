@@ -21,25 +21,25 @@ const Notification = () => {
     /* Checking if there is an old portal that is still being rendered  before rendering a new one -
         all the add and remove classes is just to animate the
         portal while removing it from the DOM, one could use framer-motion to animate the presence, but this also works. 😎 */
-    const oldElement = document.body.querySelector('#root-portal');
+    const oldPortalElement = document.body.querySelector('#root-portal');
 
     /**  Creating a new instance of the alert/portal element that will be added to the DOM upon calling it */
-    const element = document.createElement('div');
-    element.id = 'root-portal';
+    const portalElement = document.createElement('div');
+    portalElement.id = 'root-portal';
 
-    if (oldElement) {
-      oldElement.classList.remove('top-4');
-      oldElement.classList.add('top-32');
-      document.body.appendChild(element);
+    if (oldPortalElement) {
+      oldPortalElement.classList.remove('top-4');
+      oldPortalElement.classList.add('top-32');
+      document.body.appendChild(portalElement);
     }
 
-    document.body.appendChild(element);
-    element.className =
+    document.body.appendChild(portalElement);
+    portalElement.className =
       'fixed z-60 shadow-lg rounded-[0.5rem] right-[-100vw] top-4 transition-all duration-[100ms]';
     // This part is to animate the portal upon entry
     setTimeout(() => {
-      element.classList.remove('right-[-100vw]');
-      element.classList.add('right-4');
+      portalElement.classList.remove('right-[-100vw]');
+      portalElement.classList.add('right-4');
     }, 500);
 
     /** The basic structure of the alert element/component */
@@ -50,7 +50,7 @@ const Notification = () => {
             <span>{title}</span>
 
             <CloseXSmallIcon
-              onClick={() => document.body.removeChild(element)}
+              onClick={() => document.body.removeChild(portalElement)}
               className='cursor-pointer'
             />
           </div>
@@ -60,13 +60,13 @@ const Notification = () => {
     };
 
     // Initiating the portal which adds it to the DOM
-    createRoot(element).render(
-      ReactDOM.createPortal(<NotificationElement />, element)
+    createRoot(portalElement).render(
+      ReactDOM.createPortal(<NotificationElement />, portalElement)
     );
 
     // Removes the portal after the specified duration has elapsed
     setTimeout(() => {
-      document.body.removeChild(element);
+      document.body.removeChild(portalElement);
     }, duration);
   };
 
