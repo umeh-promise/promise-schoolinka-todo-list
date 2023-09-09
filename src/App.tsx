@@ -78,6 +78,8 @@ const App = () => {
             pageSize={pageSize}
             currentView={currentView}
           >
+            {/* TodoItem */}
+            <h2 className='text-gray-900 font-semibold text-base '>My Tasks</h2>
             <ul className='w-full flex flex-col gap-[1rem]  '>
               {todosData?.length > 0 ? (
                 todosData?.map((todo: Todo) => (
@@ -114,6 +116,8 @@ const App = () => {
                 <MicrophoneIcon />
               </hgroup>
             </div>
+
+            {/* Pagination */}
             <Pagination
               currentPage={currentPage}
               totalCount={todos.length}

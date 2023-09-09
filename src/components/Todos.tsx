@@ -32,11 +32,7 @@ const Todos = ({ children, currentView }: TodosProps) => {
         <DateView />
       </hgroup>
 
-      <>
-        {/* TodoItem  */}
-        <h2 className='text-gray-900 font-semibold text-base '>My Tasks</h2>
-        {children}
-      </>
+      {children}
     </Wrapper>
   );
 };
