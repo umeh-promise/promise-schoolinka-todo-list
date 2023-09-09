@@ -1,14 +1,12 @@
-import ReactDOM from 'react-dom';
+import { createPortal } from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import { CloseXSmallIcon } from '../assets/icons/svg-icons';
 
-type AlertType = 'error' | 'success' | 'warning' | 'danger';
-
 interface NotificationProps {
-  title?: React.ReactNode;
-  body?: React.ReactNode;
-  duration?: number;
-  type: AlertType;
+  title: React.ReactNode;
+  body: React.ReactNode;
+  duration: number;
+  type: 'error' | 'success' | 'warning' | 'danger';
   onClose?: () => void;
 }
 
@@ -61,7 +59,7 @@ const Notification = () => {
 
     // Initiating the portal which adds it to the DOM
     createRoot(portalElement).render(
-      ReactDOM.createPortal(<NotificationElement />, portalElement)
+      createPortal(<NotificationElement />, portalElement)
     );
 
     // Removes the portal after the specified duration has elapsed
