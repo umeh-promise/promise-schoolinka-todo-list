@@ -29,7 +29,7 @@ const Pagination = ({
 
   const lastPage = paginationRange![paginationRange!.length - 1];
   return (
-    <div className='hidden md:flex w-full justify-between'>
+    <div className='hidden md:flex w-full justify-between border-t-[1px] border-gray-200 py-[1.125rem]'>
       <button
         className='flex self-end items-center justify-center gap-[0.5rem] disabled:pointer-events-none [&>*]:disabled:opacity-[.4]'
         disabled={currentPage === 1}

@@ -1,9 +1,7 @@
 import dayjs from 'dayjs';
-import Pagination from './Pagination';
 import Wrapper from './bits/Wrapper';
 import DateView from './DateView';
 import { months } from '../utils/calender';
-import { useAppSelector } from '../redux/app/hooks';
 
 interface TodosProps {
   children: React.ReactNode;
@@ -15,16 +13,8 @@ interface TodosProps {
 
 const currentDate = dayjs();
 
-const Todos = ({
-  children,
-  currentPage,
-  setCurrentPage,
-  pageSize,
-  currentView,
-}: TodosProps) => {
+const Todos = ({ children, currentView }: TodosProps) => {
   const today = currentDate;
-
-  const { todos } = useAppSelector((state) => state.todo);
 
   return (
     <Wrapper
@@ -42,16 +32,11 @@ const Todos = ({
         <DateView />
       </hgroup>
 
-      <h2 className='text-gray-900 font-semibold text-base '>My Tasks</h2>
-      {/* TodoItem  */}
-      {children}
-
-      <Pagination
-        currentPage={currentPage}
-        totalCount={todos.length}
-        pageSize={pageSize}
-        onPageChange={(page: number) => setCurrentPage(page)}
-      />
+      <>
+        {/* TodoItem  */}
+        <h2 className='text-gray-900 font-semibold text-base '>My Tasks</h2>
+        {children}
+      </>
     </Wrapper>
   );
 };

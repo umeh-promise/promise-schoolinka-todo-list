@@ -12,6 +12,7 @@ import { Todo } from './redux/slices/todoSlice';
 import { useAppSelector } from './redux/app/hooks';
 import TodoItem from './components/TodoItem';
 import useMediaQuery from './hooks/useMediaQuery';
+import Pagination from './components/Pagination';
 
 const pageSize = 7;
 
@@ -113,6 +114,12 @@ const App = () => {
                 <MicrophoneIcon />
               </hgroup>
             </div>
+            <Pagination
+              currentPage={currentPage}
+              totalCount={todos.length}
+              pageSize={pageSize}
+              onPageChange={(page: number) => setCurrentPage(page)}
+            />
           </Todos>
           <Wrapper
             fluid

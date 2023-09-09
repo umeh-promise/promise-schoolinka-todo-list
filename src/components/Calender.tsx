@@ -38,14 +38,9 @@ const Calendar = () => {
 
       {/* Today's date  */}
       <div className='w-full flex items-stretch justify-between gap-[0.5rem]'>
-        <input
-          type='text'
-          className='w-full flex-[70%] py-[0.5rem] px-[0.88rem] col-span-2 flex h-10 items-center rounded-[0.5rem] border-[1px] border-solid border-gray-300 disabled:bg-white text-gray-900 text-base font-light leading-1.5 box-shadow'
-          disabled
-          defaultValue={`${
-            monthsAbr[today.month()]
-          } ${today.date()}, ${today.year()}`}
-        />
+        <span className='w-full flex-[70%] py-[0.5rem] px-[0.88rem] col-span-2 flex h-10 items-center rounded-[0.5rem] border-[1px] border-solid border-gray-300 disabled:bg-white placeholder:text-gray-900 text-base font-light leading-1.5 box-shadow select-none'>
+          {`${monthsAbr[today.month()]} ${today.date()}, ${today.year()}`}
+        </span>
 
         <Button
           onClick={() => {
