@@ -55,20 +55,24 @@ const AddTodo = ({ onSetTodoView }: AddTodoProps) => {
   const handleAddTodo = () => {
     if (title?.trim() === '') return;
 
+    if (title === '') return;
+
     const millisecond = 1693990844618; // millisecond from Jan 1 1970 😁
     dispatch(
       addTodo({
         todo: {
           title: title,
           todoDate: `${dateValue}T${endTime}:30.454Z`,
-          updatedAt: new Date(new Date().toLocaleDateString()).toISOString(),
+          updatedAt: new Date().toISOString(),
+          userId: crypto.randomUUID(),
           id: Math.floor(Math.random() * millisecond),
           completed: false,
           time: {
-            startTime: `${startTime}`,
-            endTime: `${endTime}`,
+            startTime: startTime as string,
+            endTime: endTime as string,
           },
         },
+        todos: [],
       })
     );
 
