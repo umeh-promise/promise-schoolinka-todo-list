@@ -72,7 +72,6 @@ const AddTodo = ({ onSetTodoView }: AddTodoProps) => {
             endTime: endTime as string,
           },
         },
-        todos: [],
       })
     );
 
