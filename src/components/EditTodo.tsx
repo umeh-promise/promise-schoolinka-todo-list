@@ -65,6 +65,7 @@ const EditTodo = ({ onSetTodoView }: EditTodoProps) => {
           },
           completed: todo!.completed,
         },
+        todos: [],
       })
     );
 

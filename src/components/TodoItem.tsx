@@ -19,6 +19,7 @@ const TodoItem = ({ todo, onSetTodoView }: TodoItemProps) => {
     dispatch(
       updateTodo({
         todo: { ...todo, completed: !todo.completed },
+        todos: [],
       })
     );
     onSetTodoView('calender');

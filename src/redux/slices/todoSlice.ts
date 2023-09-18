@@ -8,7 +8,7 @@ export interface Todo {
   title: string;
   todoDate: string;
   completed: boolean;
-  userId: string | number;
+  userId?: string | number;
   time: {
     startTime: string;
     endTime: string;
